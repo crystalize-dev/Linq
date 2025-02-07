@@ -111,15 +111,15 @@ const RegisterPage = () => {
                     Submit
                 </Button>
 
-                <Link
-                    href={'/login'}
-                    className="flex gap-2 text-sm text-zinc-600 dark:text-white/70"
-                >
+                <p className="flex gap-2 text-sm text-zinc-600">
                     Already have an account?
-                    <span className="hover:text-primary hover:underline focus:underline">
+                    <Link
+                        href={'/login'}
+                        className="border-none text-white outline-none transition-all hover:text-primary hover:underline focus:text-primary focus:underline"
+                    >
                         Sign in
-                    </span>
-                </Link>
+                    </Link>
+                </p>
             </form>
         </LoginPageWrapper>
     );

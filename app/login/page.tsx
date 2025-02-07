@@ -76,6 +76,7 @@ const Login = () => {
                 </motion.h1>
 
                 <Input
+                    autoFocus
                     layoutId="emailInput"
                     type="email"
                     name="email"
@@ -106,15 +107,15 @@ const Login = () => {
                     Submit
                 </Button>
 
-                <Link
-                    href={'/register'}
-                    className="flex gap-2 text-sm text-zinc-600 dark:text-white/70"
-                >
+                <p className="flex gap-2 text-sm text-zinc-600">
                     Don`t have an account yet?
-                    <span className="hover:text-primary hover:underline focus:underline">
+                    <Link
+                        href={'/register'}
+                        className="border-none font-semibold text-black outline-none transition-all hover:text-primary hover:underline focus:text-primary focus:underline dark:font-normal dark:text-white"
+                    >
                         Sign up
-                    </span>
-                </Link>
+                    </Link>
+                </p>
             </form>
         </LoginPageWrapper>
     );

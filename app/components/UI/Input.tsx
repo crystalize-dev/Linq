@@ -65,7 +65,7 @@ const Input = ({
 
     // Stylization
     const focusStyles =
-        'outline outline-2 outline-transparent focus:outline-primary-hover';
+        'outline outline-2 outline-transparent focus:outline-primary focus:border-none';
     const disabledStyles = 'cursor-not-allowed opacity-50';
 
     const containerClassNames = classNames(
@@ -77,12 +77,12 @@ const Input = ({
     );
 
     const inputClassNames = classNames(
-        'bg-light dark:bg-dark-secondary h-12 w-full rounded-md p-4 !text-base transition-all dark:text-white',
+        'border-2 border-light-border border-solid dark:bg-dark-secondary h-12 w-full rounded-md p-4 !text-base transition-all dark:text-white',
         focusStyles,
         { [disabledStyles]: disabled },
         { 'pr-10': icon },
         inputClassName,
-        { '!outline-red-500': error === 'Required!' }
+        { '!outline-red-500 border-none': error === 'Required!' }
     );
 
     const linkClassNames = classNames(

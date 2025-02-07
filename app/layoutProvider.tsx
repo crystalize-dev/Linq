@@ -1,26 +1,23 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { ThemeContext } from './context/ThemeContext';
-import { SessionContext, SessionProvider } from 'next-auth/react';
+import { SessionProvider } from 'next-auth/react';
 import { Toaster } from 'react-hot-toast';
 import ThemeToggler from './components/UI/ThemeToggler';
 
 export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     return (
-        <ThemeProvider>
-            <SessionProvider>
-                <Toaster />
-                <main className="flex h-screen w-screen items-center justify-center bg-light dark:bg-dark">
-                    <ThemeToggler className="absolute right-4 top-4" />
+        <PrimaryProvider>
+            <main className="flex h-screen w-screen items-center justify-center bg-light-secondary dark:bg-dark">
+                <ThemeToggler className="absolute right-4 top-4" />
 
-                    {children}
-                </main>
-            </SessionProvider>
-        </ThemeProvider>
+                {children}
+            </main>
+        </PrimaryProvider>
     );
 };
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+const PrimaryProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState<'dark' | 'light' | null>(null);
 
     useEffect(() => {
@@ -55,7 +52,24 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            {children}
+            <SessionProvider>
+                <Toaster
+                    toastOptions={
+                        theme === 'dark'
+                            ? {
+                                  style: {
+                                      background: 'var( --bg-full-dark)',
+                                      color: 'white',
+                                      border: '1px solid rgba(255,255,255,0.2)',
+                                      boxShadow: 'unset'
+                                  }
+                              }
+                            : { style: { background: 'var( --bg-full)' } }
+                    }
+                />
+
+                {children}
+            </SessionProvider>
         </ThemeContext.Provider>
     );
 };

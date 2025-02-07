@@ -15,11 +15,13 @@ const config = {
                 },
                 light: {
                     DEFAULT: 'var(--bg-full)',
-                    secondary: 'var(--bg-object)'
+                    secondary: 'var(--bg-object)',
+                    border: 'rgba(0,0,0,0.2)'
                 },
                 dark: {
                     DEFAULT: 'var(--bg-full-dark)',
-                    secondary: 'var(--bg-object-dark)'
+                    secondary: 'var(--bg-object-dark)',
+                    border: 'rgba(255,255,255,0.2)'
                 }
             }
         }

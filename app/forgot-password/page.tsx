@@ -42,7 +42,7 @@ const ForgotPage: React.FC = () => {
                 className="relative flex h-full w-full flex-col items-center justify-center gap-4 p-12"
             >
                 <Icon
-                    className="lg:border-light-border lg:dark:border-dark-border absolute left-4 top-4 !size-8 rounded-md border-solid bg-light p-1 lg:-left-12 lg:top-4 lg:border dark:bg-dark dark:text-white"
+                    className="absolute left-4 top-4 !size-8 rounded-md bg-light p-1 transition-all hover:-translate-x-2 lg:-left-12 lg:top-4 dark:bg-dark dark:text-white"
                     icon="arrowLeft"
                     onClick={() => router.back()}
                 />

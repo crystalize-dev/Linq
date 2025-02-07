@@ -33,7 +33,7 @@ const Button = ({
                 );
             case 'colored':
                 return classNames(
-                    'border-2 border-solid border-transparent bg-primary text-white transition-all',
+                    'bg-primary text-white transition-all outline outline-transparent focus:outline-primary outline-offset-2',
                     {
                         '!opacity-50 cursor-not-allowed': disabled
                     }
